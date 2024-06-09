@@ -1,0 +1,19 @@
+<div>
+  <h2>Role Management</h2>
+  <div *ngIf="successMessage">{{ successMessage }}</div>
+  <div *ngIf="errorMessage">{{ errorMessage }}</div>
+  <form (ngSubmit)="assignRole()">
+    <label for="email">Email:</label>
+    <input type="email" [(ngModel)]="email" name="email" required />
+    <label for="roles">Roles:</label>
+    <input type="text" [(ngModel)]="roles" name="roles" required />
+    <button type="submit">Assign Role</button>
+  </form>
+  <h3>Usuarios</h3>
+  <ul>
+    <li *ngFor="let user of users">
+      {{ user.email }} - {{ user.roles }}
+      <button (click)="deleteUser(user._id)">Delete</button>
+    </li>
+  </ul>
+</div>

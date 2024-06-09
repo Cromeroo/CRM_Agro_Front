@@ -1,0 +1,46 @@
+<h2>Admin Dashboard</h2>
+<h3>Users</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Roles</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.nombre }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.roles.join(", ") }}</td>
+      <td>
+        <button (click)="selectUser(user)" class="btn btn-primary">Edit</button>
+        <button (click)="deleteUser(user._id)" class="btn btn-danger">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="selectedUser">
+  <h3>Edit Roles for {{ selectedUser.nombre }}</h3>
+  <ul>
+    <li *ngFor="let role of selectedUser.roles">
+      {{ role }}
+      <button (click)="removeRole(role)" class="btn btn-warning btn-sm">
+        Remove
+      </button>
+    </li>
+  </ul>
+  <input type="text" [(ngModel)]="newRole" placeholder="Enter new role" />
+  <button (click)="assignRole()" class="btn btn-success">Assign Role</button>
+</div>
+
+<div *ngIf="successMessage" class="alert alert-success">
+  {{ successMessage }}
+</div>
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<app-usuarios></app-usuarios>

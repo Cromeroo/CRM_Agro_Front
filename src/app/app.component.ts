@@ -1,13 +1,33 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './shared/header/header.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ClientesComponent } from './pages/clientes/clientes.component';
+import { CommonModule } from '@angular/common';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { routes } from './app.routes';
+import { CustomToastrModule } from './auth/toastr.module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    HeaderComponent,
+    InicioComponent,
+    HttpClientModule,
+    ClientesComponent,
+    ResetPasswordComponent,
+  ],
 })
 export class AppComponent {
   title = 'crm';
+
+  constructor() {
+    console.log('AppComponent inicializado');
+  }
 }

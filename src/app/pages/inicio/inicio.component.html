@@ -1,0 +1,37 @@
+<div class="row text-center" style="min-height: 100vh">
+  <div class="col d-flex justify-content-center">
+    <div
+      class="card"
+      style="width: 18rem; margin-top: 2rem; border: none; max-height: 70vh"
+    >
+      <img
+        class="card-img-top rounded"
+        src="../../../assets/images/agro3.png"
+        alt="Card image cap"
+      />
+    </div>
+  </div>
+  <div class="col d-flex justify-content-center">
+    <div
+      class="card position-relative"
+      style="width: 18rem; margin-top: 2rem; border: none; max-height: 70vh"
+    >
+      <img
+        class="card-img-top rounded"
+        src="../../../assets/images/agro2.PNG"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <p class="card-text"></p>
+      </div>
+      <div
+        class="position-absolute start-50 translate-middle text-black border border-white bg-dark p-2 rounded"
+        style="width: 80%; top: 50%; transform: translate(-50%, -50%)"
+      >
+        <app-login *ngIf="!isLoggedIn"></app-login>
+        <p *ngIf="isLoggedIn" class="text-success">Ya estás logueado</p>
+      </div>
+    </div>
+  </div>
+  <div class="w-100 d-flex"></div>
+</div>
