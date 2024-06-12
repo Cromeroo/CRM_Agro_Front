@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 
-const API_URL = environment.base_url;
+const API_URL = environment.base_url + '/producto/';
 
 @Injectable({
   providedIn: 'root',
