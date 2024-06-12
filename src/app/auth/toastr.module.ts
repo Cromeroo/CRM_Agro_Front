@@ -4,7 +4,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
-    BrowserAnimationsModule, // Importar esto antes de ToastrModule
+    BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-top-right',
