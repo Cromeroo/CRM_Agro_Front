@@ -43,7 +43,7 @@
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
-              ],              "fileReplacements": [
+              ],"fileReplacements": [
                 {
                   "replace": "src/environments/environment.development.ts",
                   "with": "src/environments/environment.ts"
