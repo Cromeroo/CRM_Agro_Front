@@ -3,13 +3,29 @@ import { AuthService } from '../../services/auth/auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UsuariosComponent } from '../usuarios/usuarios.component';
+import { CrearProductoComponent } from '../crear-producto/crear-producto.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { EditarProductoComponent } from '../editar-productos/editar-productos.component';
+import { ProductosListComponent } from '../productos-list/productos-list.component';
+import { ComprasComponent } from '../compras/compras.component';
+import { ProductoEstadisticasComponent } from '../producto-estadisticas/producto-estadisticas.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
-  imports: [CommonModule, FormsModule, UsuariosComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    UsuariosComponent,
+    CrearProductoComponent,
+    EditarProductoComponent,
+    ProductosListComponent,
+    ComprasComponent,
+    ProductoEstadisticasComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DashboardComponent implements OnInit {
   users: any[] = [];
@@ -49,7 +65,7 @@ export class DashboardComponent implements OnInit {
   }
 
   selectUser(user: any) {
-    this.selectedUser = { ...user }; // Crear una copia del usuario seleccionado para edición
+    this.selectedUser = { ...user };
   }
 
   assignRole() {
@@ -78,7 +94,7 @@ export class DashboardComponent implements OnInit {
       .subscribe(
         (response) => {
           this.successMessage = 'Roles actualizados correctamente';
-          this.loadUsers(); // Refrescar la lista de usuarios
+          this.loadUsers();
           this.selectedUser = null;
           this.newRole = '';
           console.log('Roles actualizados correctamente', response);

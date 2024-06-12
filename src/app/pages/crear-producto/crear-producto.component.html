@@ -1,0 +1,104 @@
+<div class="container mt-5">
+  <h2>Crear Producto</h2>
+  <div *ngIf="mensajeExito" class="alert alert-success" role="alert">
+    {{ mensajeExito }}
+  </div>
+  <div *ngIf="mensajeError" class="alert alert-danger" role="alert">
+    {{ mensajeError }}
+  </div>
+  <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre del Producto</label>
+      <input
+        type="text"
+        id="nombre"
+        class="form-control"
+        formControlName="nombre"
+      />
+      <div
+        *ngIf="productoForm.get('nombre')?.errors?.['required']"
+        class="text-danger"
+      >
+        El nombre es obligatorio.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="referencia" class="form-label">Referencia</label>
+      <input
+        type="text"
+        id="referencia"
+        class="form-control"
+        formControlName="referencia"
+      />
+      <div
+        *ngIf="productoForm.get('referencia')?.errors?.['required']"
+        class="text-danger"
+      >
+        La referencia es obligatoria.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="cantidad" class="form-label">Cantidad</label>
+      <input
+        type="number"
+        id="cantidad"
+        class="form-control"
+        formControlName="cantidad"
+      />
+      <div
+        *ngIf="productoForm.get('cantidad')?.errors?.['required']"
+        class="text-danger"
+      >
+        La cantidad es obligatoria.
+      </div>
+      <div
+        *ngIf="productoForm.get('cantidad')?.errors?.['min']"
+        class="text-danger"
+      >
+        La cantidad debe ser al menos 1.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="precio" class="form-label">Precio</label>
+      <input
+        type="number"
+        id="precio"
+        class="form-control"
+        formControlName="precio"
+      />
+      <div
+        *ngIf="productoForm.get('precio')?.errors?.['required']"
+        class="text-danger"
+      >
+        El precio es obligatorio.
+      </div>
+      <div
+        *ngIf="productoForm.get('precio')?.errors?.['min']"
+        class="text-danger"
+      >
+        El precio debe ser al menos 0.01.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="imagen" class="form-label">Imagen del Producto</label>
+      <input
+        type="file"
+        id="imagen"
+        class="form-control"
+        (change)="onFileSelected($event)"
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="productoForm.invalid"
+    >
+      Crear Producto
+    </button>
+  </form>
+</div>

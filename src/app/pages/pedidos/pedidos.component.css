@@ -1,0 +1,26 @@
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fa-shipping-fast {
+  color: #007bff;
+}
+
+.progress {
+  height: 20px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background-color: #007bff;
+}
+
+.list-group-item {
+  background-color: #f9f9f9;
+}
+
+.badge-pill {
+  font-size: 1rem;
+}

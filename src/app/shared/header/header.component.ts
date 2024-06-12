@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuRoutes } from '../../menu/menu';
 import { MenuInfoInterface } from '../../core/interface/menu_info.interface';
-import { RouterLink, Router } from '@angular/router'; // Importa Router
+import { RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth/auth.service';
 
@@ -34,7 +34,6 @@ export class HeaderComponent implements OnInit {
   }
 
   updateMenuForAdmin(): void {
-    // Ensure the menu is reset before updating
     this.resetMenu();
     if (
       this.currentUser &&

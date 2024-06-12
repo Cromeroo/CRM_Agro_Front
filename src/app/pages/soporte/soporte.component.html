@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 mb-4">
+      <div class="card bg-dark text-white">
+        <img
+          src="{{ noticiasDestacadas.imagen }}"
+          class="card-img"
+          alt="{{ noticiasDestacadas.titulo }}"
+        />
+        <div class="card-img-overlay d-flex flex-column justify-content-end">
+          <h5 class="card-title">{{ noticiasDestacadas.titulo }}</h5>
+          <p class="card-text">{{ noticiasDestacadas.descripcion }}</p>
+          <p class="card-text">
+            <small class="text-muted">
+              <i class="fas fa-user"></i>
+              {{ noticiasDestacadas.autor }} &nbsp;|&nbsp;
+              <i class="fas fa-calendar"></i>
+              {{
+                noticiasDestacadas.fecha | date : "dd MMM yyyy"
+              }}
+              &nbsp;|&nbsp; <i class="fas fa-clock"></i>
+              {{ noticiasDestacadas.lectura }} min read
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4" *ngFor="let noticia of noticias">
+      <div class="card h-100 bg-dark text-white">
+        <img
+          src="{{ noticia.imagen }}"
+          class="card-img-top"
+          alt="{{ noticia.titulo }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ noticia.titulo }}</h5>
+          <p class="card-text">{{ noticia.descripcion }}</p>
+        </div>
+        <div class="card-footer text-right">
+          <a href="{{ noticia.link }}" class="btn btn-primary">Leer más</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

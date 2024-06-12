@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Estadísticas del Producto</h2>
+  <div
+    *ngIf="totalCompras === 0 && totalCantidad === 0"
+    class="alert alert-info"
+  >
+    No hay estadísticas disponibles para este producto.
+  </div>
+  <div *ngIf="totalCompras > 0 || totalCantidad > 0">
+    <canvas id="myChart" width="400" height="200"></canvas>
+    <p>Total de Compras: {{ totalCompras }}</p>
+    <p>Total de Cantidad Comprada: {{ totalCantidad }}</p>
+  </div>
+</div>

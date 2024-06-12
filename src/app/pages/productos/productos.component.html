@@ -1,0 +1,58 @@
+<div class="container">
+  <h1 class="my-4">Productos</h1>
+  <div *ngIf="productos.length === 0" class="alert alert-info">
+    No hay productos disponibles.
+  </div>
+  <div *ngIf="productos.length > 0" class="row">
+    <div *ngFor="let producto of productos" class="col-md-4">
+      <div class="card mb-4">
+        <img
+          *ngIf="producto.imagenUrl"
+          [src]="producto.imagenUrl"
+          class="card-img-top fixed-size"
+          alt="{{ producto.nombre }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ producto.nombre }}</h5>
+          <p class="card-text">{{ producto.descripcion }}</p>
+          <p class="card-text">Precio: {{ producto.precio | currency }}</p>
+          <button class="btn btn-primary" (click)="agregarProducto(producto)">
+            Añadir al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="my-4">Carrito</h2>
+  <div *ngIf="selectedProductos.length === 0" class="alert alert-warning">
+    No has añadido productos al carrito.
+  </div>
+  <div *ngIf="selectedProductos.length > 0" class="row">
+    <div *ngFor="let item of selectedProductos" class="col-md-4">
+      <div class="card mb-4">
+        <img
+          *ngIf="item.producto.imagenUrl"
+          [src]="item.producto.imagenUrl"
+          class="card-img-top fixed-size"
+          alt="{{ item.producto.nombre }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ item.producto.nombre }}</h5>
+          <p class="card-text">Cantidad: {{ item.cantidad }}</p>
+          <button class="btn btn-danger" (click)="eliminarProducto(item)">
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button
+    *ngIf="selectedProductos.length > 0"
+    class="btn btn-success"
+    (click)="comprar()"
+  >
+    Comprar
+  </button>
+</div>

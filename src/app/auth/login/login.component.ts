@@ -35,13 +35,13 @@ export class LoginComponent {
     this.authService.login(this.email, this.password).subscribe(
       (response) => {
         console.log('Login exitoso:', response);
-        localStorage.setItem('token', response.token); // Guarda el token en localStorage
-        this.authService.setCurrentUser(response.usuario); // Guarda el usuario en AuthService
-        this.router.navigate(['/dashboard']); // Redirige al componente deseado
+        localStorage.setItem('token', response.token);
+        this.authService.setCurrentUser(response.usuario);
+        this.router.navigate(['/Productos']);
       },
       (error) => {
         console.error('Error en el login:', error);
-        this.errorMessage = 'Login failed. Please try again.'; // Manejar el error del login
+        this.errorMessage = 'Login failed. Please try again.';
       }
     );
   }
@@ -59,17 +59,17 @@ export class LoginComponent {
       .subscribe(
         (response) => {
           console.log('Registro exitoso:', response);
-          localStorage.setItem('token', response.token); // Guarda el token en localStorage
+          localStorage.setItem('token', response.token);
           localStorage.setItem('currentUser', JSON.stringify(response.usuario));
           this.successMessage =
             'Registration successful! Redirecting to dashboard...';
           setTimeout(() => {
-            this.router.navigate(['/dashboard']); // Redirige al componente deseado
+            this.router.navigate(['/productos']);
           }, 3000);
         },
         (error) => {
           console.error('Error en el registro:', error);
-          this.errorMessage = 'Registration failed. Please try again.'; // Manejar el error del registro
+          this.errorMessage = 'Registration failed. Please try again.';
         }
       );
   }

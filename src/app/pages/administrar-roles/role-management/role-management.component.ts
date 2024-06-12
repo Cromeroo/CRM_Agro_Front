@@ -53,7 +53,7 @@ export class RoleManagementComponent implements OnInit {
     this.authService.deleteUser(id).subscribe(
       (response) => {
         this.successMessage = 'Usuario eliminado correctamente';
-        this.loadUsers(); // Refrescar la lista de usuarios
+        this.loadUsers();
       },
       (error) => {
         this.errorMessage = 'Error eliminando usuario';

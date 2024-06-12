@@ -1,0 +1,30 @@
+<div class="container">
+  <h4 class="text-center">Compras del Usuario</h4>
+  <ul class="list-group">
+    <li *ngFor="let compra of comprasUsuario" class="list-group-item">
+      <h5>Compra ID: {{ compra._id }}</h5>
+      <ul>
+        <li *ngFor="let item of compra.productos">
+          Producto: {{ item?.producto?.nombre }} - Cantidad:
+          {{ item?.cantidad }}
+        </li>
+      </ul>
+      <p>Fecha: {{ compra?.fecha | date : "medium" }}</p>
+    </li>
+  </ul>
+
+  <h4 class="text-center mt-5">Compras Generales</h4>
+  <ul class="list-group">
+    <li *ngFor="let compra of comprasGenerales" class="list-group-item">
+      <h5>Compra ID: {{ compra._id }}</h5>
+      <ul>
+        <li *ngFor="let item of compra.productos">
+          Producto: {{ item?.producto?.nombre }} - Cantidad:
+          {{ item?.cantidad }}
+        </li>
+      </ul>
+      <p>Usuario: {{ compra?.usuarioId?.email }}</p>
+      <p>Fecha: {{ compra?.fecha | date : "medium" }}</p>
+    </li>
+  </ul>
+</div>

@@ -11,6 +11,10 @@ import { AuthGuard, LoginGuard } from './guards/auth.guard';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { ProductosComponent } from './pages/productos/productos.component';
+import { EditarProductoComponent } from './pages/editar-productos/editar-productos.component';
+import { ProductoEstadisticasComponent } from './pages/producto-estadisticas/producto-estadisticas.component';
+import { SoporteComponent } from './pages/soporte/soporte.component';
 
 export const routes: Routes = [
   {
@@ -36,11 +40,12 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: PATH.CLIENTES,
-    title: 'Clientes',
-    component: ClientesComponent,
+    path: PATH.PRODUCTOS,
+    title: 'Productos',
+    component: ProductosComponent,
     canActivate: [AuthGuard],
   },
+
   {
     path: PATH.LOGIN,
     title: 'Login',
@@ -75,6 +80,22 @@ export const routes: Routes = [
     title: 'Reset-password',
     component: ResetPasswordComponent,
   },
+  {
+    path: PATH.EDITAR_PRODUCTO,
+    title: 'Editar-producto',
+    component: EditarProductoComponent,
+  },
+  {
+    path: PATH.VER_ESTADISTICAS,
+    title: 'Estadisticas-producto',
+    component: ProductoEstadisticasComponent,
+  },
+  {
+    path: PATH.SOPORTE,
+    title: 'Soporte-producto',
+    component: SoporteComponent,
+  },
+
   {
     path: '**',
     redirectTo: PATH.HOME,

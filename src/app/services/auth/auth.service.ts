@@ -64,7 +64,7 @@ export class AuthService {
 
     const headers = new HttpHeaders().set('x-token', tokenOnly);
 
-    console.log('Token enviado en la cabecera:', tokenOnly); // Log para verificar el token enviado
+    console.log('Token enviado en la cabecera:', tokenOnly);
     return this.httpClient.put(
       `${API_URL}/login/cambiocontrasena`,
       { password },

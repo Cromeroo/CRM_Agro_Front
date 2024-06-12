@@ -7,6 +7,7 @@ import { ClientesComponent } from './pages/clientes/clientes.component';
 import { CommonModule } from '@angular/common';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { routes } from './app.routes';
+import { FooterComponent } from './shared/footer/footer.component';
 import { CustomToastrModule } from './auth/toastr.module';
 
 @Component({
@@ -22,6 +23,7 @@ import { CustomToastrModule } from './auth/toastr.module';
     HttpClientModule,
     ClientesComponent,
     ResetPasswordComponent,
+    FooterComponent,
   ],
 })
 export class AppComponent {

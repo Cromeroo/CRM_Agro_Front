@@ -1,2 +1,40 @@
-<app-usuarios></app-usuarios> <app-crear-usuario></app-crear-usuario>
-<app-role-management></app-role-management>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header text-center">
+      <h2>Perfil del Usuario</h2>
+    </div>
+    <div class="card-body">
+      <div *ngIf="usuario">
+        <p><strong>Nombre:</strong> {{ usuario.nombre }}</p>
+        <p><strong>Email:</strong> {{ usuario.email }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt-4">
+    <div class="card-header text-center">
+      <h3>Compras Realizadas</h3>
+    </div>
+    <div class="card-body">
+      <div *ngIf="compras.length === 0" class="alert alert-info text-center">
+        No has realizado ninguna compra.
+      </div>
+      <ul class="list-group" *ngIf="compras.length > 0">
+        <li *ngFor="let compra of compras" class="list-group-item mb-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="mb-1">Compra ID: {{ compra._id }}</h5>
+            <small>{{ compra.fecha | date : "medium" }}</small>
+          </div>
+          <ul class="list-unstyled mt-2">
+            <li *ngFor="let item of compra.productos">
+              <p>
+                Producto: {{ item.producto.nombre }} - Cantidad:
+                {{ item.cantidad }}
+              </p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

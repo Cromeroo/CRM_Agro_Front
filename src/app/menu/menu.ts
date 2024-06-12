@@ -39,21 +39,7 @@ export const MenuRoutes: MenuInfoInterface[] = [
   },
   {
     path: PATH.SOPORTE,
-    title: 'Soporte',
-    icon: '',
-    classCss: '',
-    subMenu: [],
-  },
-  {
-    path: PATH.CONTACTO,
-    title: 'Contacto',
-    icon: '',
-    classCss: '',
-    subMenu: [],
-  },
-  {
-    path: PATH.CLIENTES,
-    title: 'Clientes',
+    title: 'Noticias',
     icon: '',
     classCss: '',
     subMenu: [],
